@@ -1,16 +1,23 @@
-PreEq-EqData version 0.01
+PreEq version 0.01
 =========================
 
-The README is used to introduce the module and provide instructions on
-how to install the module, any machine dependencies it may have (for
-example C compilers and installed libraries) and any other information
-that should be provided before the module is installed.
+Perl extension for parsing and calculating upstream preeq data
 
-A README file is required for CPAN modules since CPAN extracts the
-README file from a module distribution so that people browsing the
-archive can use it get an idea of the modules uses. It is usually a
-good idea to provide version information here so that people can
-decide whether fixes for the module are worth downloading.
+module parses DOCSIS::DOCS-IF3-MIB::docsIf3CmStatusUsEqData and calculates
+taps data (re and im parts of signal, energy of signal in time domain),
+stats data (MTC, NMTER, PreMTTER, PostMTTER, PPESR),
+alarms and values of frequency responce data (re and im parts of signal,
+energy representation of signal in frequency domain for defined algorithms)
+via FFT
+
+modules:
+PreEq::EqData     - data processing, calculation and representation (text,csv)
+PreEq::EqDefs     - definitions
+PreEq::EqHTML     - HTML representation (as simple as possible, all browsers)
+PreEq::SvgHTML    - HTML svg tag of signal in frequency domain, png exporting
+PreEq::FFTWrapper - wrapper for Fourier transform, currently only pdl supported
+
+use PreEq::EqData or PreEq::EqHTML, no need to import or use others directly
 
 INSTALLATION
 
@@ -18,23 +25,44 @@ To install this module type the following:
 
    perl Makefile.PL
    make
-   make test
+   #make test # no tests implemented yet
    make install
 
 DEPENDENCIES
 
 This module requires these other modules and libraries:
 
-  blah blah blah
+  perl pdl
+
+This extenstion does not depend on any fancy modules by purpose, only those
+absolutely neccessary where used, including pdl for Fourier transform,
+someday maybe other modules calculating FFT will be used (see FFTWrapper)
+
+NOTES
+
+This module should not be of much use for ordinary people, it's purpose is
+to help in visualizing and analyzing signal distortions in return path of
+DOCSIS plant, and that means it may only be of any use for people that know
+what it is about.
+
+Some aspects are covered within this documentation, for more details see
+the source code. Bearing in mind that perl is mostly write-only language,
+I tried to make it as readable as possible, but... well, it's perl
+and nobody cares anyway.
+
+DISCLAIMER
+
+I'm no expert in signal processing (I know something practically, but no
+no strict background theory), and I am not personally confident what
+representation of signal in frequency domain would be best.
+Currently implemented algorithms were requested by someone who knew what
+he wanted (at least I think he did) so I happily implemeted them.
+Any suggestions or basics are welcome.
 
 COPYRIGHT AND LICENCE
 
-Put the correct copyright and licence information here.
-
-Copyright (C) 2016 by mariusz jadczak
+Copyright (C) 2016 by Mariusz Jadczak
 
 This library is free software; you can redistribute it and/or modify
-it under the same terms as Perl itself, either Perl version 5.20.0 or,
-at your option, any later version of Perl 5 you may have available.
-
+it under the terms of BSD licence
 
