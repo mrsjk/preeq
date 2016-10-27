@@ -1,0 +1,10 @@
+Changes
+Makefile.PL
+MANIFEST
+README
+t/PreEq-EqData.t
+lib/PreEq/EqData.pm
+lib/PreEq/EqDefs.pm
+lib/PreEq/EqHTML.pm
+lib/PreEq/SvgHTML.pm
+lib/PreEq/FFTWrapper.pm
