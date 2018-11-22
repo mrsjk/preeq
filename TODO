@@ -1,0 +1,14 @@
+
+there's not much to do in calculations (except some code prettifying),
+but plenty to do regarding visualization, and possibly comparission
+of preeq data from multiple devices.
+
+i just don't have time nor urgent need to reimplement my original and 
+more advanced frontend js implementation to more civilized language
+(perl, that is) and backend calculations.
+
+but i hope to get back to it in some not-very-distant time.
+on the other hand, this is something very few people need and know about,
+and they who know are probably already using more sophisticated tools
+to analyze preeq data, so no pressure on me
+
